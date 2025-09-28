@@ -38,7 +38,8 @@ class Book extends Database {
         $query->bindParam(":genre", $genre_filter);
 
         } else {
-        $sql = "SELECT * FROM book WHERE status = 1 ORDER BY title ASC";
+             $sql = "SELECT * FROM book ORDER BY title ASC";
+        // $sql = "SELECT * FROM book WHERE status = 1 ORDER BY title ASC";
         //  $sql = "SELECT * FROM book WHERE status = 1 ORDER BY title ASC";
         $query = $this->connect()->prepare($sql);
         }
@@ -96,7 +97,8 @@ class Book extends Database {
     }
 
     public function deleteBook($bid){
-        $sql = "UPDATE  book SET status = 0 WHERE id=:id";
+        $sql = "DELETE FROM book WHERE id=:id";
+        // $sql = "UPDATE  book SET status = 0 WHERE id=:id";
         // $sql = "UPDATE  book SET status = 0 WHERE id=:id";
         $query= $this->connect()->prepare($sql);
 
